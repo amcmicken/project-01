@@ -1,0 +1,142 @@
+<style type="text/css">
+body{
+	position: relative;
+	font-family: helvetica neue, helvetica, sans-serif;
+	font-weight: lighter;
+	font-size: 40pt;
+}
+#container{
+	padding-left: 30px;
+	padding-right: 30px;
+	position: relative;
+}
+#searchheader{
+	color: #fff;
+	background-color: #000;
+	padding-left: 10px;
+}
+#genresheader{
+	color: #fff;
+	background-color: #000;
+	padding-left: 10px;
+}
+#search{
+	color: #ffff00;
+	padding-left: 10px;
+	background-color: #33ffcc;
+	margin-bottom: 15px;
+}
+.genres{
+	background: #33ffcc;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
+a:hover{
+	background-color: #ffff00;
+}
+#genrecontainer{
+	line-height: 75px;
+}
+input {
+    border: 0;
+    outline: 0;
+    border-bottom: 0px;
+    font-size: 40pt;
+    font-weight: lighter;
+    width: 50%;
+}
+#searchbar{
+	color: #ffff00;
+	background-color: #33ffcc;
+}
+#logo{
+	color: #e6e6e6;
+	font-size: 80pt;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+</style>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Enoch Pratt Library</title>
+		<meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
+		<meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<script src="js/modernizr.custom.js"></script>
+
+</head>
+<body>
+<div class="container">
+			<ul id="gn-menu" class="gn-menu-main">
+				<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li class="gn-search-item">
+									<input placeholder="Search" type="search" class="gn-search">
+									<a class="gn-icon gn-icon-search"><span>Search</span></a>
+								</li>
+								<li>
+									<a class="gn-icon gn-icon-download">My Profile</a>
+									<ul class="gn-submenu">
+										<li><a href="mylibrary.html" class="gn-icon gn-icon-illustrator">My Library</a></li>
+										<li><a href="myaccount.html" class="gn-icon gn-icon-photoshop">My Account</a></li>
+									</ul>
+								</li>
+								<li><a href="explore.html" class="gn-icon gn-icon-cog">Explore</a></li>
+								<li><a href="locationandhours.html" class="gn-icon gn-icon-help">Location & Hours</a></li>
+								<!--<li>
+									<a class="gn-icon gn-icon-archive">Archives</a>
+									<ul class="gn-submenu">
+										<li><a class="gn-icon gn-icon-article">Articles</a></li>
+										<li><a class="gn-icon gn-icon-pictures">Images</a></li>
+										<li><a class="gn-icon gn-icon-videos">Videos</a></li>-->
+									</ul>
+								</li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+				<li><!--<a href="http://tympanus.net/codrops">Codrops</a>--></li>
+				<!--<li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
+				<li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li> -->
+			</ul>
+<header>
+	<div id="container">
+		<div id="searchheader">search</div>
+		<div id="search">type here<input id="searchbar" type="text" /></div>
+		<div id="genresheader">genres</div>
+		<div id="genrecontainer">
+	<a class="genres" href="#">subject</a> <a class="genres" href="#">author</a> <a class="genres" href="#">time period</a> <a class="genres" href="#">title</a> <a class="genres" href="#">classics</a> <a class="genres" href="#">trending</a> <a class="genres" href="#">new</a> <a class="genres" href="#">staff picks</a>
+	</div>
+	<div id="logo">enoch pratt free library</div>
+	</div>
+
+</header>
+
+	
+		</div><!-- /container -->
+	<!-- add class="vis1" to img below to hide image when page opens -->
+	
+</body>
+		<script src="js/classie.js"></script>
+		<script src="js/gnmenu.js"></script>
+		<script>
+			new gnMenu( document.getElementById( 'gn-menu' ) );
+		</script>
+</html>
