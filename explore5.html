@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Enoch Pratt Library</title>
+		<meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
+		<meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<!-- Add jQuery library -->
+	<script type="text/javascript" src="../lib/jquery-1.10.1.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="../lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="../source/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="../source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+
+		
+	</head>
+
+<body>
+<div class="container">
+			<ul id="gn-menu" class="gn-menu-main">
+				<li class="gn-trigger">
+					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+							<ul class="gn-menu">
+								<li class="gn-search-item">
+									<input placeholder="Search" type="search" class="gn-search">
+									<a class="gn-icon gn-icon-search"><span>Search</span></a>
+								</li>
+								<li>
+									<a class="gn-icon gn-icon-download">My Profile</a>
+									<ul class="gn-submenu">
+										<li><a href="mylibrary3.html" class="gn-icon gn-icon-illustrator">My Library</a></li>
+										<li><a href="myaccount4_2.html" class="gn-icon gn-icon-photoshop">My Account</a></li>
+									</ul>
+								</li>
+								<li><a href="explore4.html" class="gn-icon gn-icon-cog">Explore</a></li>
+								<li><a href="locationandhours.html" class="gn-icon gn-icon-help">Location & Hours</a></li>
+								<!--<li>
+									<a class="gn-icon gn-icon-archive">Archives</a>
+									<ul class="gn-submenu">
+										<li><a class="gn-icon gn-icon-article">Articles</a></li>
+										<li><a class="gn-icon gn-icon-pictures">Images</a></li>
+										<li><a class="gn-icon gn-icon-videos">Videos</a></li>-->
+									</ul>
+								</li>
+							</ul>
+						</div><!-- /gn-scroller -->
+					</nav>
+				</li>
+				<!--<li><!--<a href="http://tympanus.net/codrops">Codrops</a>--><!--</li>
+				<!--<li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
+				<li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li> -->
+			</ul>
+			<header>
+		<div id="searchheader">explore</div>
+		<div id="search"> <input id="searchbar" type="text" /></div>
+		<div id="genresheader">genres</div>
+		<div id="genrecontainer">
+	<a class="genresselect" href="#">trending</a> <a class="genres" href="#">author</a> <a class="genres" href="#">time period</a> <a class="genres" href="#">title</a> <a class="genres" href="#">classics</a> <a class="genres" href="#">subject</a> <a class="genres" href="#">new</a> <a class="genres" href="#">staff picks</a>
+		<div id="trendingheader">trending</div>
+		<a class="genres" href="#" onmouseover="lincolnimg.className='vis2'" onmouseout="lincolnimg.className='vis1'" class="fancybox" href="alasbabylon.jpg" data-fancybox-group="gallery" title="Description goes here">lincoln boys</a> <a class="genres" href="#" onmouseover="chaseimg.className='vis2'" onmouseout="chaseimg.className='vis1'">the chase</a> <a class="genres" href="#" onmouseover="deathimg.className='vis2'" onmouseout="deathimg.className='vis1'">concealed in death</a> <a class="genres" href="#" onmouseover="breadimg.className='vis2'" onmouseout="breadimg.className='vis1'">still life with bread crumbs</a>
+	
+	</div>
+	<div id="logo">enoch pratt free library</div>
+	</div>
+
+			
+			</header> 
+	
+		</div><!-- /container -->
+	<!-- add class="vis1" to img below to hide image when page opens -->
+		<img id="lincolnimg"  class="vis1" src="imgs/bookimgs/lincoln.jpg" width="175px" > 
+		<img id="chaseimg"  class="vis1" src="imgs/bookimgs/chase.jpg" width="175px" > 
+		<img id="deathimg"  class="vis1" src="imgs/bookimgs/death.jpg" width="175px" > 
+		<img id="breadimg"  class="vis1" src="imgs/bookimgs/bread.jpg" width="175px" > 
+</body>
+		<script src="js/classie.js"></script>
+		<script src="js/gnmenu.js"></script>
+		<script>
+			new gnMenu( document.getElementById( 'gn-menu' ) );
+		</script>
+</html>
