@@ -1,0 +1,158 @@
+<style type="text/css">
+body{
+	position: relative;
+	font-family: helvetica neue, helvetica, sans-serif;
+	font-weight: lighter;
+	font-size: 40pt;
+}
+#container{
+	padding-left: 30px;
+	padding-right: 30px;
+	position: relative;
+}
+#searchheader{
+	color: #fff;
+	background-color: #000;
+	padding-left: 10px;
+}
+#genresheader{
+	color: #fff;
+	background-color: #000;
+	padding-left: 10px;
+}
+#search{
+	color: #ffff00;
+	padding-left: 10px;
+	background-color: #33ffcc;
+	margin-bottom: 15px;
+}
+#alas{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -335px;
+        margin-left: -180px;
+        z-index: 101px;
+}
+#harry{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -335px;
+        margin-left: -180px;
+        z-index: 101px;
+}
+#insurgent{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -335px;
+        margin-left: -180px;
+        z-index: 101px;
+}
+#future{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -335px;
+        margin-left: -180px;
+        z-index: 101px;
+}
+#fault{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -335px;
+        margin-left: -180px;
+        z-index: 101px;
+}
+#gatsby{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -335px;
+        margin-left: -180px;
+        z-index: 101px;
+}
+#extinction{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -335px;
+        margin-left: -180px;
+        z-index: 101px;
+}
+.genres{
+	background: #33ffcc;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
+a:hover{
+	background-color: #ffff00;
+}
+nav{
+	width: 30px;
+	height: 30px;
+	background-color: #ffff00;
+}
+#genrecontainer{
+	line-height: 75px;
+}
+.vis1{
+	visibility: hidden;
+}
+.vis2{
+	visibility: visible;
+}
+#logo{
+	color: #e6e6e6;
+	font-size: 80pt;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<img id="alas" src="imgs/bookimgs/alasbabylon.jpg" width="400px">
+	<img id="harry" src="imgs/bookimgs/harry.jpg" width="400px">
+	<img id="insurgent" src="imgs/bookimgs/insurgent.jpg" width="400px">
+	<img id="future" src="imgs/bookimgs/thefutureofthemind.jpg" width="400px">
+	<img id="fault" src="imgs/bookimgs/thefaultinourstars.jpg" width="400px">
+	<img id="gatsby" src="imgs/bookimgs/thegreatgatsby.jpg" width="400px">
+	<img id="extinction" src="imgs/bookimgs/thesixthextinction.jpg" width="400px">	
+	<div id="container">
+		<div id="genresheader">current</div>
+		<div id="genrecontainer"><a class="genres" href="#" onmouseover="alas.className='vis2'" onmouseout="alas.className='vis1'">alas babylon</a></div>
+		<div id="genresheader">next in queue</div>
+		<div id="genrecontainer">
+	<a class="genres" href="#" onmouseover="harry.className='vis2'" onmouseout="harry.className='vis1'">harry potter and the half-blood prince</a>
+		</div>
+		<div id="genresheader">book recs</div>
+		<div id="genrecontainer">
+			<a class="genres" href="#" onmouseover="insurgent.className='vis2'" onmouseout="insurgent.className='vis1'">insurgent</a> <a class="genres" href="#" onmouseover="future.className='vis2'" onmouseout="future.className='vis1'">the future of the mind</a> <a class="genres" href="#" onmouseover="fault.className='vis2'" onmouseout="fault.className='vis1'">the fault in our stars</a> <a class="genres" href="#" onmouseover="gatsby.className='vis2'" onmouseout="gatsby.className='vis1'">the great gatsby</a> <a class="genres" href="#" onmouseover="extinction.className='vis2'" onmouseout="extinction.className='vis1'">the sixth extinction</a>
+		</div>
+			<div id="logo">enoch pratt free library</div>
+	</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+        $(function () { 
+                $('.subject').on('hover', function () {
+                	$(this).toggle();
+        		});
+        });
+        
+        $(function () {
+        $('nav').on('click', function () {
+                $(this).attr('data-state', 'expanded');
+        });
+});
+</html>
